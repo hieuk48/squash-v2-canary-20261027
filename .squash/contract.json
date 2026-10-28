@@ -1,0 +1,32 @@
+{
+  "schema": "squash.hardened/v1",
+  "policy_version": "hardened/v2",
+  "contract": {
+    "predicate": "exact",
+    "cases": [
+      {
+        "id": "positive",
+        "input": 5,
+        "expected": 10
+      },
+      {
+        "id": "zero",
+        "input": 0,
+        "expected": 0
+      },
+      {
+        "id": "negative",
+        "input": -3,
+        "expected": -6
+      }
+    ],
+    "package_manager": "npm",
+    "build_argv": [
+      "npm",
+      "run",
+      "build"
+    ]
+  },
+  "adapter": "export const run = (input, candidate) => candidate.double(input);",
+  "candidate_entry": "dist/index.mjs"
+}
